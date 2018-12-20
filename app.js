@@ -1,5 +1,5 @@
 var express = require('express');
-var request = require('request');
+var bodyParser = require('body-parser');
 var app = express();
 
 app.set('view engine', 'ejs');
@@ -7,19 +7,22 @@ app.set('view engine', 'ejs');
 var path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 
+var port = process.env.PORT || 3000;
+
+app.listen( port, function() {
+	'use strict';
+	console.log( 'Listening on port ' + port );
+} );
+
+//midleware
+app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 
 // Routes
-var routes = require('./routes');
-
-// home
-app.get('/', routes.home);
-
-// movie_detail
-app.get('/movie/:id/detail', routes.movie_detail);
-
-// notFound
-app.get('*', routes.notFound);
+app.get('/', function (req, res) {
+	res.send('server is running!', 200);
+});
 
 
 
-app.listen(process.env.PORT || 4000);
+

@@ -1,16 +1,21 @@
 {
-  "name": "movie_app",
+  "name": "movieAPI",
   "version": "1.0.0",
-  "description": "A basic movie app",
+  "description": "A basic movie API",
   "main": "app.js",
   "scripts": {
-    "test": ""
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pm2 start ./app.js --watch", 
+    "stop": "pm2 stop app"
   },
-  "author": "Rafael Reis",
+  "author": "Márcio Vinícius",
   "license": "ISC",
   "dependencies": {
     "ejs": "^2.3.4",
     "express": "^4.16.4",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "body-parser": "^1.18.3",
+    "file-base64": "^1.0.0",
+    "mysql": "^2.16.0"
   }
 }
