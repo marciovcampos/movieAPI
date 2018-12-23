@@ -1,6 +1,12 @@
 module.exports = {
-    movieAPI: {
-        baseURL: "http://localhost:3000",
-        baseImgURL: "http://localhost:3000/images/"
-    }
-}
+    environment : {
+      debugMode: true
+    },
+      database : {
+        host     : 'localhost',
+        user     : 'root',
+        password : '',
+        database : 'moviedb',
+        port: '3306'
+      }
+  }

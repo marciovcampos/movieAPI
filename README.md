@@ -31,7 +31,7 @@ Some exemples of api routes:
 URL  | HTTP Verb | POST Body | Result 
 ------------- | ------------- | ------------- | -------------
 /movies  | GET  | empty  | Return all movies
-/movie  | POST   | JSON string  | New movie created
+/movie  | POST   | JSON string  | Create a new movie
 /movie/:id  | GET   | empty  | Return single movie
 /movie/:id  | PUT   | JSON string  | Updates an existing movie
 /movie/:id  | DELETE   | empty  | Deletes an existing movie
