@@ -17,9 +17,10 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 //controllers
-var movieCtrl = require('./server/controllers/movie.js')
-var actorCtrl = require('./server/controllers/actor.js')
-var directorCtrl = require('./server/controllers/director.js')
+var movieCtrl = require('./server/controllers/movie.js');
+var actorCtrl = require('./server/controllers/actor.js');
+var directorCtrl = require('./server/controllers/director.js');
+var userCtrl = require('./server/controllers/user.js');
 
 // Routes
 app.get('/', function (req, res) {
@@ -155,3 +156,14 @@ app.post('/director', function(req, res) {
 		res.status(resp.statusCode).json(resp)
 	});
 });
+
+
+//////////Facebook//////////
+//Login with Facebook Token
+app.post('/auth/signin', function (req, res) {
+	var fbToken = req.body.fbToken;
+	userCtrl.signin(fbToken, function (resp) {
+		res.status(resp.statusCode).json(resp);
+	});
+});
+

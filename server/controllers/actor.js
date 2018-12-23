@@ -8,7 +8,7 @@ var base64 = require('file-base64');
 var ActorCtrl = {};
 module.exports = ActorCtrl;
 
-//GET /actor/:id - Get a actor
+//GET /actor/:id - Get an actor
 ActorCtrl.readFromID = function(id, callback){
   var sql = 'select id, name, photo_url FROM Star WHERE is_actor = true AND id = ?';
   var params = [id];
@@ -96,7 +96,7 @@ ActorCtrl.edit = function(id, params, callback){
 };
 
 
-//DELETE /actor - remove um ator
+//DELETE /actor - Delete an actor
 ActorCtrl.deleteFromID = function(id, callback){
   var sql = 'DELETE FROM Star WHERE id = ? AND is_actor = true';
   var params = [id];
