@@ -8,31 +8,43 @@ var base64 = require('file-base64');
 var ActorCtrl = {};
 module.exports = ActorCtrl;
 
-//GET /actor/:id - detalhes de um ator
+//GET /actor/:id - Get a actor
 ActorCtrl.readFromID = function(id, callback){
   var sql = 'select id, name, photo_url FROM Star WHERE is_actor = true AND id = ?';
   var params = [id];
 
   database.query(sql, params, 'release', function(err, rows) {
-    if (!rows || rows.length == 0){
-      callback(response.error(400));
+      
+    if (err) {
+      callback(response.error(400, err));
       return;
     }
 
+    if (!rows || rows.length == 0){
+      callback(response.error(404));
+      return;
+    }
+   
     callback(response.result(200, rows[0]));
   });
 };
 
 
-//GET /actors - lista todos os atores
+//GET /actors - Get all Actors
 ActorCtrl.readAll = function(callback){
 
   var sql = 'select id, name, photo_url AS photoURL FROM Star WHERE is_actor = true';
   var params = null;
 
   database.query(sql, params, 'release', function(err, rows) {
+    
+    if (err) {
+      callback(response.error(400, err));
+      return;
+    }
+
     if (!rows || rows.length == 0){
-      callback(response.error(400));
+      callback(response.error(404));
       return;
     }
 
@@ -41,10 +53,10 @@ ActorCtrl.readAll = function(callback){
 };
 
 
-//POST /actor - insere um novo ator
+//POST /actor - Create a new actor
 ActorCtrl.insert = function(params, callback){
   var imageName = params.name.fileNameClean('.jpg');
-  base64.decode(params.photo, './public/images/' + imageName, function(err, output) {
+  base64.decode(params.photo, './public/images/actor/' + imageName, function(err, output) {
     console.log("success")
   });
   
@@ -63,10 +75,10 @@ ActorCtrl.insert = function(params, callback){
 };
 
 
-//PUT /actor - altera um ator
+//PUT /actor - uptade an actor
 ActorCtrl.edit = function(id, params, callback){
   var imageName = params.name.fileNameClean('.jpg');
-  base64.decode(params.photo, './public/images/' + imageName, function(err, output) {
+  base64.decode(params.photo, './public/images/actor/' + imageName, function(err, output) {
     console.log("success")
   });
   

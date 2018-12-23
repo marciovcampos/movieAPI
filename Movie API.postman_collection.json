@@ -18,21 +18,22 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/movies",
+							"raw": "http://localhost:3000/movies/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"movies"
+								"movies",
+								""
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Detalhe de um Filme",
+					"name": "Detalhes de um Filme",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -61,6 +62,90 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Edita um Filme",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"title\": \"The Matrix Edit\",\n    \t\"releasedAt\": \"1999-02-25 01:59:59.000\",\n\t\t\"lenght\": 136,\n\t\t \"photo\":\t{\n\t\t\t\"data\": \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==\",\n    \t\t\"extension\": \"jpg\"\n\t\t\t\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/movie/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movie",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cria um Filme",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"title\": \"The Matrix New\",\n    \t\"releasedAt\": \"1999-03-31 03:00:00.000\",\n\t\t\"lenght\": 136,\n\t\t \"photo\":\t{\n    \t\t\t\"data\": \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==\",\n        \t\t\"extension\": \"jpg\"\n\t\t\t\t\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta um Filme",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/movie/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movie",
+								"4"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -68,7 +153,7 @@
 			"name": "Ator",
 			"item": [
 				{
-					"name": "Lista todos os atores",
+					"name": "Lista de Atores",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -91,7 +176,7 @@
 					"response": []
 				},
 				{
-					"name": "Detalhes de um ator",
+					"name": "Detalhes de um Ator",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -115,31 +200,7 @@
 					"response": []
 				},
 				{
-					"name": "Remove um ator",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:3000/actor/6",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"actor",
-								"6"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Altera um ator",
+					"name": "Edita um ator",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -152,10 +213,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\": 7,\n\t\"name\": \"Laurence Fishburne\",\n\t\"photo\": \"R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=\"\n}"
+							"raw": "{\n\t\"id\": 4,\n\t\"name\": \"Laurence Fishburne Edit\",\n\t\"photo\": \"R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/actor/3",
+							"raw": "http://localhost:3000/actor/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -163,7 +224,7 @@
 							"port": "3000",
 							"path": [
 								"actor",
-								"3"
+								"4"
 							]
 						}
 					},
@@ -194,6 +255,167 @@
 							"port": "3000",
 							"path": [
 								"actor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove um ator",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/actor/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"actor",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Diretor",
+			"item": [
+				{
+					"name": "Lista de Diretores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/directors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"directors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalhes de um Diretor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/director/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"director",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edita um Diretor",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 7,\n\t\"name\": \"Laurence Fishburne Director Edit\",\n\t\"photo\": \"R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/director/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"director",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cria um novo Diretor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Laurence Fishburne Director\",\n\t\"photo\": \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8b8FQDwAFLQG463LdcAAAAABJRU5ErkJggg==\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/director",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"director"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove um Diretor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/director/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"director",
+								"6"
 							]
 						}
 					},

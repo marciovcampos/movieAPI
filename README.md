@@ -42,7 +42,7 @@ URL  | HTTP Verb | POST Body | Result
 
 ## Postman
 
-A Postman Collection with all endpoints is available [here](https://www.getpostman.com/collections/7fbcd85d51004e1af11d).
+A Postman Collection with all endpoints is available [here](https://github.com/marciovcampos/movieAPI/blob/master/Movie%20API.postman_collection.json).
 
 ## About:
 MovieAPI was developed by [Márcio Vinícius](https://github.com/marciovcampos) under the [MIT license](LICENSE).
