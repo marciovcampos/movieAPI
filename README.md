@@ -12,7 +12,7 @@ This  was develop for discipline ARQUITETURA E DESENVOLVIMENTO DE APIs PARA BACK
 ## :star: Give a Star! 
 If you liked the project or if MovieAPI helped you, please give a star ;)
 
-:computer: ## Technologies implemented: 
+## :computer: Technologies implemented: 
 
 - Node JS
 - MySQL
@@ -38,7 +38,7 @@ URL  | HTTP Verb | POST Body | Result
 /actors  | GET  | empty  | Return all actors
 /directors  | GET  | empty  | Return all directors
 /user/:id  | GET  | empty  | Return single user
-/auth/singin  | POST  | JSON string  | Return facebook token
+/auth/singin  | POST  | JSON string  | Login with Facebook Token
 
 ## :rocket: Postman 
 
