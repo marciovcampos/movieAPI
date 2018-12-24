@@ -167,3 +167,39 @@ app.post('/auth/signin', function (req, res) {
 	});
 });
 
+
+//////////User//////////
+
+//Get User Statistics
+app.get('/user/:id/statistic', function (req, res) {
+	var id = req.params["id"];
+	userCtrl.statistic(id, function (resp) {
+		res.status(resp.statusCode).json(resp);
+	});
+});
+
+//Get an User List
+app.get('/user/:id/list', function (req, res) {
+	var id = req.params["id"];
+	userCtrl.readAll(id, function (resp) {
+		res.status(resp.statusCode).json(resp);
+	});
+});
+
+//Create a User List
+app.post('/user/:id/list', function (req, res) {
+	var userId = req.params["id"];
+	var body = req.body;
+	userCtrl.insert(userId, body, function (resp) {
+		res.status(resp.statusCode).json(resp);
+	});
+});
+
+//Delete an Movie on User list
+app.delete('/user/:userid/list/:movieid', function (req, res) {
+	var userId = req.params["userid"];
+	var movieId = req.params["movieid"];
+	userCtrl.deleteFromID(userId, movieId, function (resp) {
+		res.status(resp.statusCode).json(resp);
+	});
+});
